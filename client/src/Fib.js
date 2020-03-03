@@ -1,11 +1,11 @@
-import React, { Component } form 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class Fib extends Component {
   state = {
-    seenIndexes = [],
-    values = {},
-    index = ''
+    seenIndexes: [],
+    values: {},
+    index: ''
   };
 
   componentDidMount() {
@@ -14,13 +14,13 @@ class Fib extends Component {
   };
 
   async fetchValues() {
-    const values = wait axios.get('/api/values/current');
-    this.setState({ values: values.data }};
+    const values = await axios.get('/api/values/current');
+    this.setState({ values: values.data });
   };
 
   async fetchIndexes() {
-    const seenIndexes = wait axios.get('/api/values/all');
-    this.setState({ seenIndexes: seenIndexes.data }};
+    const seenIndexes = await axios.get('/api/values/all');
+    this.setState({ seenIndexes: seenIndexes.data });
   };
 
   renderSeenIndexes() {
@@ -31,7 +31,7 @@ class Fib extends Component {
     const entries = [];
     for (let key in this.state.values) {
       entries.push(
-`       <div key={ key }>
+        <div key={ key }>
           For index { key } I calculated {this.state.values[key]}
         </div>
       );
