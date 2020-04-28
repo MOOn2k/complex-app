@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true moon2k/complex-client-test npm run test
 
 after_success:
-  - docker build -t moon2k/complex-client -f ./client
-  - docker build -t moon2k/complex-nginx -f ./nginx
-  - docker build -t moon2k/complex-server -f ./server
-  - docker build -t moon2k/complex-worker -f ./worker
+  - docker build -t moon2k/complex-client ./client
+  - docker build -t moon2k/complex-nginx ./nginx
+  - docker build -t moon2k/complex-server ./server
+  - docker build -t moon2k/complex-worker ./worker
   # Login Docker CLI
   # --password-stdin opens input for password and echo presets it
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_LOGIN" --password-stdin
