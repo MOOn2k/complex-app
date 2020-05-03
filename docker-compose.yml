@@ -15,12 +15,17 @@ services:
       - ./server:/app
     environment:
       - REDIS_HOST=redis
+      # complex-redis.03lwew.0001.use2.cache.amazonaws.com
       - REDIS_PORT=6379
       - PGUSER=postgres
       - PGPASSWORD=postgres_password
       - PGHOST=postgres
+      # complex-postgres.cesntmaacycp.us-east-2.rds.amazonaws.com
       - PGPORT=5432
       - PGDATABASE=postgres
+      # fibvaluesdb
+
+      # complex-postgres
   client:
     build:
       dockerfile: Dockerfile.dev

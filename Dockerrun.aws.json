@@ -1,0 +1,38 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "moon2k/complex-client"
+      "essential": false,
+      "hostname": "client",
+    },
+    {
+      "name": "worker",
+      "image": "moon2k/complex-worker"
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "moon2k/complex-server"
+      "essential": false,
+      "hostname": "api"
+    },
+    {
+      "name": "nginx",
+      "image": "moon2k/complex-nginx"
+      "essential": true,
+      "hostname": "nginx",
+      "links": [
+        "server",
+        "client"
+      ],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ]
+    }
+  ]
+}
