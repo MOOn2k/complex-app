@@ -3,24 +3,24 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "moon2k/complex-client"
+      "image": "moon2k/complex-client",
       "essential": false,
       "hostname": "client",
     },
     {
       "name": "worker",
-      "image": "moon2k/complex-worker"
+      "image": "moon2k/complex-worker",
       "essential": false
     },
     {
       "name": "server",
-      "image": "moon2k/complex-server"
+      "image": "moon2k/complex-server",
       "essential": false,
       "hostname": "api"
     },
     {
       "name": "nginx",
-      "image": "moon2k/complex-nginx"
+      "image": "moon2k/complex-nginx",
       "essential": true,
       "hostname": "nginx",
       "links": [
